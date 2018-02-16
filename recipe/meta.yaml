@@ -1,6 +1,6 @@
 {% set version = "1.4.0.pre" %}
 {% set commit = "c064f827e96b37d29ba7a7b87657a18a94896854" %}
-{% set sha256sum = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855d" %}
+{% set sha256sum = "c605763b9d191973ce4e6700e4aca6dcdd680824f219d90b5284b963797d950d" %}
 
 # NOTE(wesm): When updating the build, please remember also to update the
 # pinned Arrow version. We are letting parquet-cpp build its own Apache Arrow
