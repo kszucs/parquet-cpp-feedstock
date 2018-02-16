@@ -1,6 +1,6 @@
 {% set version = "1.4.0.pre" %}
-{% set commit = "e2814ccb224a01289ad3a736ce89a956cb7d52fb" %}
-{% set sha256sum = "55a507878f0d53b8b8319f826df2acd9e52655db317ce04329b9ba3c3880d562" %}
+{% set commit = "a9fdeb0b1f2105290a88246c7a7fd8717751200a" %}
+{% set sha256sum = "fc84ba273a23cba12845bedbbbd7d592045fa684515b2aeb80fa0224824abc1f" %}
 
 # NOTE(wesm): When updating the build, please remember also to update the
 # pinned Arrow version. We are letting parquet-cpp build its own Apache Arrow
@@ -16,12 +16,9 @@ source:
   fn: apache-parquet-cpp-{{ version }}.tar.gz
   url: https://github.com/apache/parquet-cpp/archive/{{ commit }}.tar.gz
   sha256: {{ sha256sum }}
-  patches:
-    # Disables boost auto linkage on Windows
-    - disable-boost-autolink.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and not (py35 and win64)]
   features:
     - vc14  # [win and py35]
@@ -31,7 +28,7 @@ requirements:
     - toolchain
     - boost-cpp 1.66.0
     - cmake
-    - thrift-cpp <0.11
+    - thrift-cpp >=0.11
     - python            # [win]
     - arrow-cpp 0.8.0
 
