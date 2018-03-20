@@ -1,6 +1,6 @@
-{% set version = "1.4.0.pre" %}
-{% set commit = "a9fdeb0b1f2105290a88246c7a7fd8717751200a" %}
-{% set sha256sum = "fc84ba273a23cba12845bedbbbd7d592045fa684515b2aeb80fa0224824abc1f" %}
+{% set version = "1.4.0" %}
+{% set commit = "b62c22e52d37fa9580d85c5a2a2d73bd8e268364" %}
+{% set sha256sum = "2fa5704fc1164f68508e3050d30a6436dd56434e1a592d8ddf4afd68f62a7c01" %}
 
 # NOTE(wesm): When updating the build, please remember also to update the
 # pinned Arrow version. We are letting parquet-cpp build its own Apache Arrow
@@ -18,7 +18,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and not (py35 and win64)]
   features:
     - vc14  # [win and py35]
@@ -30,10 +30,10 @@ requirements:
     - cmake
     - thrift-cpp >=0.11
     - python            # [win]
-    - arrow-cpp 0.8.0
+    - arrow-cpp 0.9.0
 
   run:
-    - arrow-cpp 0.8.0
+    - arrow-cpp 0.9.0
 
 test:
   requires:
