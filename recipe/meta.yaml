@@ -27,10 +27,10 @@ requirements:
     - cmake
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - arrow-cpp 0.9.0
   host:
     - boost-cpp
     - thrift-cpp >=0.11
-    - arrow-cpp 0.9.0
 
   run:
     - arrow-cpp 0.9.0
