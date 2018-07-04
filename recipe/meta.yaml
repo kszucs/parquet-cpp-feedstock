@@ -18,7 +18,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win32]
   skip: true  # [win and py<35]
 
@@ -33,6 +33,7 @@ requirements:
     - arrow-cpp 0.9.0
 
   run:
+    - boost-cpp
     - arrow-cpp 0.9.0
 
 test:
