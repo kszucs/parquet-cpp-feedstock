@@ -1,4 +1,4 @@
-{% set version = "1.4.0.post0" %}
+{% set version = "1.5.0.pre" %}
 {% set commit = "63f41b00bddecb172bd5b3aa0366b4653f498811" %}
 {% set checksum = "6e0227e6c1c2c6b580435f6f0a8349a8b8c461c8767d2ac1bc94a0cd122ec5f9" %}
 
