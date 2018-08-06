@@ -1,6 +1,6 @@
-{% set version = "1.4.0" %}
-{% set commit = "b62c22e52d37fa9580d85c5a2a2d73bd8e268364" %}
-{% set sha256sum = "2fa5704fc1164f68508e3050d30a6436dd56434e1a592d8ddf4afd68f62a7c01" %}
+{% set version = "1.5.0.pre" %}
+{% set commit = "63f41b00bddecb172bd5b3aa0366b4653f498811" %}
+{% set checksum = "6e0227e6c1c2c6b580435f6f0a8349a8b8c461c8767d2ac1bc94a0cd122ec5f9" %}
 
 # NOTE(wesm): When updating the build, please remember also to update the
 # pinned Arrow version. We are letting parquet-cpp build its own Apache Arrow
@@ -15,10 +15,10 @@ package:
 source:
   fn: apache-parquet-cpp-{{ version }}.tar.gz
   url: https://github.com/apache/parquet-cpp/archive/{{ commit }}.tar.gz
-  sha256: {{ sha256sum }}
+  sha256: {{ checksum }}
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win32]
   skip: true  # [win and py<35]
 
@@ -30,11 +30,11 @@ requirements:
   host:
     - boost-cpp
     - thrift-cpp >=0.11
-    - arrow-cpp 0.9.0
+    - arrow-cpp 0.10.0
 
   run:
     - boost-cpp
-    - arrow-cpp 0.9.0
+    - arrow-cpp 0.10.0
 
 test:
   commands:
