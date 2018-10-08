@@ -2,11 +2,12 @@
 # which install's the appropiate version of arrow-cpp.
 
 # https://github.com/apache/arrow/blob/master/cpp/src/parquet/.parquetcppversion
-{% set version = "1.5.1" %}
+{% set parquet_version = "1.5.1" %}
+{% set arrow_version = "0.11.0" %}
 
 package:
   name: parquet-cpp
-  version: {{ version }}
+  version: {{ parquet_version }}
 
 build:
   number: 0
@@ -15,9 +16,9 @@ build:
 
 requirements:
   host:
-    - arrow-cpp 0.11.0
+    - arrow-cpp {{ arrow_version }}
   run:
-    - arrow-cpp 0.11.0
+    - arrow-cpp {{ arrow_version }}
 
 test:
   commands:
