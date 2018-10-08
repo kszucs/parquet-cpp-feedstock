@@ -1,21 +1,12 @@
-{% set version = "1.5.0.pre" %}
-{% set commit = "63f41b00bddecb172bd5b3aa0366b4653f498811" %}
-{% set checksum = "6e0227e6c1c2c6b580435f6f0a8349a8b8c461c8767d2ac1bc94a0cd122ec5f9" %}
+# Parquet-cpp has been migrated to arrow codebase, so this is a meta package
+# which install's the appropiate version of arrow-cpp.
 
-# NOTE(wesm): When updating the build, please remember also to update the
-# pinned Arrow version. We are letting parquet-cpp build its own Apache Arrow
-# so that we do not have to update conda-packages for Arrow before we can
-# update this package. So if there is an ABI change in Arrow, we can update
-# this package faster
+# https://github.com/apache/arrow/blob/master/cpp/src/parquet/.parquetcppversion
+{% set version = "1.5.1" %}
 
 package:
   name: parquet-cpp
   version: {{ version }}
-
-source:
-  fn: apache-parquet-cpp-{{ version }}.tar.gz
-  url: https://github.com/apache/parquet-cpp/archive/{{ commit }}.tar.gz
-  sha256: {{ checksum }}
 
 build:
   number: 0
@@ -23,31 +14,28 @@ build:
   skip: true  # [win and py<35]
 
 requirements:
-  build:
-    - cmake
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
   host:
-    - boost-cpp
-    - thrift-cpp >=0.11
-    - arrow-cpp 0.10.0
-
+    - arrow-cpp 0.11.0
   run:
-    - boost-cpp
-    - arrow-cpp 0.10.0
+    - arrow-cpp 0.11.0
 
 test:
   commands:
-    - test -f $PREFIX/lib/libparquet.so                                       # [linux]
-    - test -f $PREFIX/lib/libparquet.dylib                                    # [osx]
-    - test -f $PREFIX/include/parquet/api/reader.h                            # [unix]
-    - if not exist %PREFIX%\\Library\\include\\parquet\\api\\reader.h exit 1  # [win]
-    - if not exist %PREFIX%\\Library\\bin\\parquet.dll exit 1                 # [win]
-    - if not exist %PREFIX%\\Library\\lib\\parquet.lib exit 1                 # [win]
-    - if not exist %PREFIX%\\Library\\lib\\parquet_static.lib exit 1          # [win]
+    # headers
+    - test -f $PREFIX/include/parquet/api/reader.h               # [unix]
+    - if not exist %LIBRARY_INC%\\parquet\\api\\reader.h exit 1  # [win]
+
+    # static
+    - test -f $PREFIX/lib/libparquet.a                                # [unix]
+    - if not exist %PREFIX%\\Library\\lib\\parquet_static.lib exit 1  # [win]
+
+    # shared
+    - test -f $PREFIX/lib/libparquet.so                        # [linux]
+    - test -f $PREFIX/lib/libparquet.dylib                     # [osx]
+    - if not exist %PREFIX%\\Library\\bin\\parquet.dll exit 1  # [win]
 
 about:
-  home: http://github.com/apache/parquet-cpp
+  home: http://github.com/apache/arrow
   license: Apache 2.0
   summary: 'C++ libraries for the Apache Parquet file format'
 
@@ -60,3 +48,5 @@ extra:
     - cpcloud
     - siddharthteotia
     - kou
+    - kszucs
+    - pitrou
