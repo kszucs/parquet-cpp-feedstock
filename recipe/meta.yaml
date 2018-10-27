@@ -3,7 +3,7 @@
 
 # https://github.com/apache/arrow/blob/master/cpp/src/parquet/.parquetcppversion
 {% set parquet_version = "1.5.1" %}
-{% set arrow_version = "0.11.1" %}
+{% set arrow_version = "0.11.0" %}
 
 package:
   name: parquet-cpp
