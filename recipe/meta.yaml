@@ -10,15 +10,15 @@ package:
   version: {{ parquet_version }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win32]
   skip: true  # [win and py<35]
 
 requirements:
   host:
-    - arrow-cpp {{ arrow_version }}
+    - arrow-cpp >={{ arrow_version }}
   run:
-    - arrow-cpp {{ arrow_version }}
+    - arrow-cpp >={{ arrow_version }}
 
 test:
   commands:
