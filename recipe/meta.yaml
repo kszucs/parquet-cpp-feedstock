@@ -3,14 +3,14 @@
 
 # https://github.com/apache/arrow/blob/master/cpp/src/parquet/.parquetcppversion
 {% set parquet_version = "1.5.1" %}
-{% set arrow_version = "0.11.0" %}
+{% set arrow_version = "0.11.1" %}
 
 package:
   name: parquet-cpp
   version: {{ parquet_version }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win32]
   skip: true  # [win and py<35]
 
