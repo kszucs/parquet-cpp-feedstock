@@ -16,9 +16,9 @@ build:
 
 requirements:
   host:
-    - arrow-cpp {{ arrow_version }}
+    - arrow-cpp >={{ arrow_version }}
   run:
-    - arrow-cpp {{ arrow_version }}
+    - arrow-cpp >={{ arrow_version }}
 
 test:
   commands:
