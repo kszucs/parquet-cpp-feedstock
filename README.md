@@ -14,9 +14,8 @@ Summary: C++ libraries for the Apache Parquet file format
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/parquet-cpp-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/parquet-cpp-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/parquet-cpp-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/parquet-cpp-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/parquet-cpp-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/parquet-cpp-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/parquet-cpp-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/parquet-cpp-feedstock)
 
 Current release info
 ====================
