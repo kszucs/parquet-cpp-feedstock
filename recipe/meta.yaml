@@ -10,9 +10,8 @@ package:
   version: {{ parquet_version }}
 
 build:
-  number: 1
-  skip: true  # [win32]
-  skip: true  # [win and py<35]
+  number: 2
+  noarch: generic
 
 requirements:
   host:
